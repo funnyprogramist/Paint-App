@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "PT Sans", sans-serif;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #65cc4b;
+}
+
+.container{
+    display: flex;
+    width: 100%;
+    gap: 5px;
+    padding: 5px;
+    max-width: 1050px;
+}
+
+section{
+    background: #0bad37;
+    border-radius: 7px;
+}
+
+
+.tools-board{
+    width: 210px;
+    padding: 15px 22px 0;
+}
+
+.tools-board .row{
+   margin-bottom: 20px; 
+}
+
+.row .options{
+   list-style: none;
+   margin: 10px 0 0 5px;
+}
+
+.row .options .option{
+   display: flex;
+   cursor: pointer;
+   align-items: center;
+   margin-bottom: 10px;
+}
+
+.option:is(:hover, .active) img{
+    filter: invert(17%) sepia(90%) saturate(3000%) hue-rotate(900deg) brightness(100%) contrast(100%);
+}
+
+.option:where(span, label){
+   color: rgb(57, 57, 57);
+   cursor: pointer;
+   padding-left: 10px;
+}
+
+.option:is(:hover, .active) :where(span, label){
+    color: rgb(58, 130, 158);
+}
+
+.option #fill-color{
+    cursor: pointer;
+    height: 14px;
+    width: 14px;
+}
+
+#fill-color:checked ~ label{
+    color: rgb(58, 130, 158);
+}
+
+.option #size-slider{
+    width: 100%;
+    height: 5px;
+    margin-top: 10px;
+}
+
+.colors .options{
+    display: flex;
+    justify-content: space-around;
+}
+
+.colors .option{
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    margin-top: 3px;
+    position: relative;
+}
+
+.colors .option:nth-child(1){
+    background-color: #2920d6;
+    border: 2px solid #6c6969;
+}
+
+.colors .option:nth-child(2){
+    background-color: #000;
+}
+
+.colors .option:nth-child(3){
+    background-color: #ff1f1f;
+}
+
+.colors .option:nth-child(4){
+    background-color: #3bff05;
+}
+
+.colors .option:nth-child(5){
+    background-color: #4a95f7;
+}
+
+.colors .option:selected::before{
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 50%;
+    height: 12px;
+    width: 12px;
+    background: inherit;
+    border-radius: inherit;
+    border: 2px solid #fff;
+    transform: translate(-50%, -50%);
+}
+
+.colors .option:first-child:selected::before{
+    border-color: #a79d9d;
+}
+
+.option #color-picker{
+    opacity: 0;
+    cursor: pointer;
+}
+
+.buttons button{
+    width: 100%;
+    color: #fff;
+    border: none;
+    outline: none;
+    padding: 11px 0;
+    font-size: 0.9rem;
+    margin-bottom: 13px;
+    background: ghostwhite;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.buttons .clear-canvas{
+   color: rgb(76, 75, 75);
+   border: 1px solid rgb(76, 75, 75);
+   transition: all 0.3s ease;
+}
+
+.clear-canvas:hover{
+    color: rgb(255, 255, 255);
+    background: rgb(213, 213, 213);
+}
+
+.buttons .save-img{
+    background: rgb(0, 102, 255);
+    border: 1px solid rgb(0, 102, 255);
+ }
+
+.drawing-board{
+    flex: 1;
+    background-color: #fff;
+}
+
+.drawing-board canvas{
+    width: 100%;
+    height: 100%;
+}
